@@ -1,0 +1,33 @@
+#include <iostream>
+#include <list>
+using namespace std;
+
+void print(list<int> a) {
+    for(auto it = a.begin(); it != a.end(); it++) {
+        cout << *it << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    list<int> a(10, 2);
+    a.push_back(1);
+    a.push_front(8);
+    print(a);
+    a.sort();
+    print(a);
+    auto it = a.begin();
+    for(int i = 0; i < 4; i++){
+        it++;
+    }
+    a.insert(it, 5);
+    print(a);
+        for(int i = 0; i < 4; i++){
+        it++;
+    }
+    a.sort();
+    print(a);
+    a.unique();
+    print(a);
+    cout << a.back() << endl;
+}
