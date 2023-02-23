@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+using namespace std;
+string encrypt(string message, int key) {
+string cipher = "";
+for (char c : message) {
+if (c >= 'A' && c <= 'Z') {
+cipher += (char)(((c - 'A') + key) % 26 + 'A');
+} else if (c >= 'a' && c <= 'z') {
+cipher += (char)(((c - 'a') + key) % 26 + 'a');
+} else {
+cipher += c;
+}
+}
+return cipher;
+}
+int main() {
+int k1 = 13, k2 = 6, k3 = 28;
+string name = "Roman";
+string first_name = "Ryzhiy";
+string second_first_name = "Artemovich";
+string encrypted_name = encrypt(name, k1);
+cout << "Name: " << encrypted_name << endl;
+string encrypted_first_name = encrypt(first_name, k2);
+cout << "First name: " << encrypted_first_name << endl;
+string encrypted_second_first_name = encrypt(second_first_name, k3);
+cout << "Second name: " << encrypted_second_first_name << endl;
+return 0;
+}
